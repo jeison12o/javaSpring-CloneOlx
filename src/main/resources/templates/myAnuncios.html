@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<div  th:replace="fragment/header :: head"></div>
+</head>
+<body>
+	<div th:replace="fragment/navbarMenuUsuario :: navbarMenuUsuario"></div>
+	<div th:replace="fragment/listaAnunciosUsuario :: listaAnunciosUsuario"></div>
+	<div th:replace="fragment/footer :: foo"></div>
+	<script src="js/eliminarAnuncio.js" th:src="@{/js/eliminarAnuncio.js}"></script>
+</body>
+</html>

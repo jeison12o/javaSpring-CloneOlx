@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div  th:replace="fragment/header :: head"></div>
+</head>
+<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  			<a class="navbar-brand" th:href="@{/menu}"><i class="fas fa-cart-plus"></i>OLX</a>
+  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  			</button>
+		</nav>
+		<div class="m-3" align="center">
+		<div class="card" style="width: 45rem;">
+  			<div class="card-body">
+  				<h5 class="card-title" th:text="#{usuarioActualizar.title}"></h5>
+  			    <form action="#" th:action="@{/user/modificarUsuario}" th:object="${usuario}" method="post">
+  			    	<input type="hidden" th:field="*{correo}" value="${usuario.correo}">
+  			    	<input type="hidden" th:field="*{contrasena}" value="${usuario.contrasena}">
+  			    	<input type="hidden" th:field="*{repContrasena}" value="${usuario.contrasena}">
+    				<div class="container">
+						<div class="row" >
+							<div class="col-md-6">
+								<div class="form-group ">
+    								<label for="exampleFormControlInput1" th:text="#{usuario.nombre}"></label>
+    								<input required = "true" type="text" class="form-control" placeholder="Ingrese los nombres" th:field="*{nombre}" value="${usuario.nombre}">
+    								<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span>
+  								</div>
+  								<div class="form-group ">
+    								<label for="exampleFormControlInput1" th:text="#{usuario.telefono}"></label>
+    								<input required = "true" min="1000000" pattern="^[0-9]+" type="number" class="form-control"   placeholder="Ingrese el telefono" th:field="*{telefono}" value="${usuario.telefono}">
+    								<span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="text-danger"></span>
+  								</div>
+  								<div class="form-group ">
+    								<label for="exampleFormControlInput1" th:text="#{usuario.direccion}"></label>
+    								<input required="true" type="text" class="form-control"  placeholder="Ingrese la direccion" th:field="*{direccion}" value="${usuario.direccion}">
+    								<span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}" class="text-danger"></span>
+  								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group ">
+    								<label for="exampleFormControlInput1" th:text="#{usuario.apellidos}"></label>
+    								<input required=true type="text" class="form-control"  placeholder="Ingrese los apellidos" th:field="*{apellido}" value="${usuario.apellido}">
+    								<span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" class="text-danger"></span>
+  								</div>
+  								<div class="form-group ">
+    								<label for="exampleFormControlInput1" th:text="#{usuario.fechaNacimiento}"></label>
+    								<input required=true type="date" class="form-control"   placeholder="Ingrese la fecha de nacimiento" th:field="*{fechaNacimiento}" value="${usuario.fechaNacimiento}">
+    								<span th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}" class="text-danger"></span>
+  								</div>
+							</div> 
+						</div>
+						</div>
+					<div>
+						<button th:text="#{usuario.actualizarInfo}" class="btn btn-primary" type="submit"><i class="fas fa-edit"></i> </button>
+						<a th:text="#{usuario.cancelarActualizacion}" class="btn btn-danger" th:href="@{/menu}" ><i class="far fa-times-circle"></i> </a>
+					</div>
+				</form>
+  			</div>
+		</div>
+	</div>
+	
+	<div th:replace="fragment/footer :: foo"></div>
+</body>
+</html>

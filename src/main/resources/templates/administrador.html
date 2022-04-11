@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+	<title th:text="#{administrador.titulo}"></title>
+	<div th:replace="fragment/header :: head"></div>
+	<link rel="stylesheet" th:href="@{/css/administrador.css}">
+</head>
+<body>
+
+	<div id = "barraNavegacion" th:replace="fragment/navbarMenuAdmin :: navbarMenuAdmin"></div>
+	
+	
+	<table id = "tabla">
+		<thead>
+			<tr>
+				<th>
+					<span id = "simbolo"><i class="fas fa-user-shield"></i></span>
+				</th>
+				<th>
+					<span th:text="#{admin.bienvenido}" id="bienvenida"></span>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+		</tbody>
+	</table>
+	
+	
+	<div th:replace="fragment/footer :: foo"></div>
+	
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+@charset "ISO-8859-1";
+
+.card{
+	margin-left: 300px;
+	margin-top: 50px;
+	padding: 10px;
+}
+
+#titulo {
+	font-size: 40px;
+	font-weight: bolder;
+}
+
+#firstDiv {
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+
+#campo {
+	margin-left: 265px;
+	margin-bottom: 80px;
+}
+
+#botonAgregar{
+	margin-left: 2000px;
+}
+
+#botonBuscar{
+	margin-left: 13px;
+}
+
+#botonActualizar{
+	margin-left: 13px;
+}
+
+#botonesCrud {
+	margin-bottom: 65px;
+	margin-left: 340px;
+}
+
+#listaCategorias {
+	width: 770px;
+}
+
+.filasCategorias , .columnasCategorias{
+	border: 1px solid lightgray;
+	text-align: center;
+}
+
+#botonEliminar{
+	margin: 5px;
+}
+
+#tituloColumnaCategoria{
+	font-size: 20px;
+}
+
+#nombreCategoria, #colBotonesEliminar{
+	width: 385px;
+}
+
+#divisionCategorias {
+	margin-bottom: 30px;
+}
+
+#divisionR {
+	height: 50px;
+}
+
+#divisionSolucion {
+	height: 60px;
+	text-align: center;
+}

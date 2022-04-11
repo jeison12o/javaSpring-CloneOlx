@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+</head>
+<body th:fragment="foo">
+
+	<img th:src="@{/images/lineaHorizontal.png}" alt="lineaHorizontal.png">
+
+	<div align="center">
+		<img th:src="@{/images/footer.png}" alt="footer image.">
+	</div>
+	
+	<img th:src="@{/images/lineaHorizontal.png}" alt="lineaHorizontal.png">
+	
+	<select class="custom-select" id="locales">
+	<option selected th:text="#{Language.sel}"> </option>
+	<option value="es" th:text="#{Language.espanol}"> </option>
+	<option value="en" th:text="#{Language.ingles}"> </option>
+	<option value="fr" th:text="#{Language.frances}"> </option>
+	
+	</select>
+	
+	<table align="center">
+		<td><span id="copyright">   Copyright &copy; 2000-2020 OLX Colombia LTDA.</span></td>
+		
+		<td><a th:href="@{/download}" class="btn btn-primary" id="botonDescarga" th:text="#{descarga.title}"></a></td>
+		
+	</table>
+	
+	<div id="cuadroFinal">
+	</div>
+
+	<div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="https://use.fontawesome.com/releases/v5.4.1/js/all.js"></script>
+		<script src="js/submenu.js" th:src="@{/js/submenu.js}"></script>
+	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#locales").change(function() {
+				var selectedOption = $('#locales').val();
+				if (selectedOption != '') {
+					window.location.replace('?lang=' + selectedOption);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+@charset "ISO-8859-1";
+
+.card {
+	margin-left: 300px;
+	margin-top: 50px;
+	padding: 10px;
+}
+
+#titulo {
+	font-size: 40px;
+	font-weight: bolder;
+}
+
+#firstDiv {
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+
+#botonAgregar {
+	margin-left: 330px;
+}
+
+#botonesCrud {
+	margin-bottom: 65px;
+	margin-top: 50px;
+}
+
+#tablaSubcategoria {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	width: 10px;
+	width: 770px;
+}
+
+#fila {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	margin-bottom: 50px;
+}
+
+.columna {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+#divisionTabla {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 10px;
+}
+
+#campo {
+	height: 37px;
+	width: 200px;
+	margin-right: 50px;
+}
+
+#combo {
+	margin-right: 30px;
+	width: 200px;
+}
+
+#tablaSubcategorias {
+	width: 770px;
+	border: 1px solid lightgray;
+}
+
+.filasSubcategorias, .colSubcategorias {
+	border: 1px solid lightgray;
+	width: 385px;
+}
+
+.colSubcategorias {
+	text-align: center;
+}
+
+#colTitulo {
+	text-align: center;
+	font-size: 20px;
+	height: 50px;
+}
+
+#botonEliminar {
+	margin: 10px;
+}
+
+#inputGroupSelect01 {
+	height: 38px;
+	margin-top: 15px;
+	width: 110px;
+}
+
+#lblCategorias {
+	margin-left: 90px;
+	margin-top: 15px;
+	height: 38px;
+}
+
+#mensajeError {
+	text-align: center;
+}

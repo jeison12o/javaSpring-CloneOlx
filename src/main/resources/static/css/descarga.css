@@ -1,0 +1,41 @@
+table {
+	border-color: black;
+	border: 10px;	
+}
+
+a{
+	width: 250px;
+	height: 40px;
+}
+
+#titulo {
+	font-size: 70px;
+}
+
+#subtitulo {
+	font-size: 30px;
+}
+
+#descarga {
+	font-size: 20px;
+}
+
+#boton1{
+	padding: 90px;
+}
+
+#espaciado{
+	color: white;
+}
+
+#botonDescarga{
+	height: 65px;
+	margin-bottom: 20px;
+	margin: 5px;
+	
+}
+
+#letreroBoton {
+	font-size: 30px;
+}
+

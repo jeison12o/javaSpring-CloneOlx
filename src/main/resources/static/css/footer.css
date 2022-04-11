@@ -1,0 +1,23 @@
+table{
+	margin: 4px;
+	background-color: white;
+	width: 1342px;
+}
+
+td {
+	text-align: center;
+	padding: 4px;
+}
+
+#copyright {
+	position: left;
+	font-size: 15px;
+}
+
+#botonDescarga{
+	position: right;
+}
+
+#cuadroFinal{
+	margin: 50px;
+}

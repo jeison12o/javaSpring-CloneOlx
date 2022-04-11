@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<div th:fragment="listaAnunciosUsuario">
+		<div class="container mt-3">
+			<h2 th:if="${listaAnuncios.isEmpty()}" th:text="#{anuncio.usuarioVacio}"><i class="far fa-sad-tear"></i></h2>
+			<div th:if="${!listaAnuncios.isEmpty()}">
+				<h2 th:text="#{anuncio.misAnuncios}"></h2>
+				<table class="table">
+					<thead>
+					</thead>
+					<tbody>
+						<tr th:each="anuncio : ${listaAnuncios}">
+							<div class="card mt-3" style="width: 60rem;">
+  								<div class="card-body">
+  									<div class="container">
+										<div class="row">
+											<div class="col-md-4">
+												<img th:src="${anuncio.urlFoto}" th:alt="${anuncio.urlFoto}" class="card-img-top">
+											</div>
+											<div class="col-md-6">
+												<h2 class="card-title" th:text="${anuncio.titulo}"></h2>
+												<p class="card-text" th:text="${anuncio.descripcion}"></p>
+											</div>
+											<div class="col-md-2">
+												<a class="btn btn-primary" th:href="@{/user/buscarAnuncio/{id}(id=${anuncio.id})}" th:text="#{anuncio.modificar}"><i class="fas fa-pencil-alt"></i> </a>
+												<a class="btn btn-danger mt-1" th:onclick="eliminarAnuncio([[${anuncio.id}]], [[${anuncio.usuario.id}]])" th:text="#{anuncio.eliminar}"><i class="far fa-trash-alt"></i></a>
+											</div>
+										</div>
+									</div>
+  								</div>
+							</div>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

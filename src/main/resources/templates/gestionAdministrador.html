@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>OLX | Gesti&oacute;n de administrador</title>
+<div  th:replace="fragment/header :: head"></div>
+<link rel="stylesheet" th:href="@{/css/gestionAdministrador.css}">
+
+</head>
+<body>
+	<div id = "barraNavegacion" th:replace="fragment/navbarMenuAdmin :: navbarMenuAdmin"></div>
+	<div class="m-3" align="center">
+		<div class="card" style="width: 45rem;">
+  			<div class="card-body">
+  			
+  				<div id="tablaTitulo">
+  						<span class="card-title" id="titulo" th:text="#{admin.rellenarInfo}"></span>
+  				</div>
+  				<div id="tablaFormulario">
+  			      	<form action="#" th:action="@{/admin/gestionAdministrador}" th:object="${admin}" method="post">  
+  			      	
+    					<div class="container" id="divisionFormulario">
+							<div class="row" >
+								<div class="col-md-6">
+									<div class="form-group ">
+    									<label for="exampleFormControlInput1" th:text="#{admin.nombre}"></label>
+    									<input type="text" class="form-control" th:placeholder="#{admin.insertarNombre}" th:field="*{nombre}" >
+    									<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span>
+    								
+  									</div>
+  									<div class="form-group ">
+    									<label for="exampleFormControlInput1" th:text="#{admin.telefono}"></label>
+    									<input type="number" class="form-control"   th:placeholder="#{admin.insertarTelefono}" th:field="*{telefono}" >
+    									<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{telefono}" class="text-danger"></span>
+  									</div>
+  									<div class="form-group ">
+    									<label for="exampleFormControlInput1" th:text="#{admin.direccion}"></label>
+    									<input type="text" class="form-control"  th:placeholder="#{admin.insertarDireccion}" th:field="*{direccion}">
+    									<span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}" class="text-danger"></span>
+    								
+  									</div>
+  									<div class="form-group ">
+    									<label for="exampleFormControlInput1" th:text="#{admin.contrasena}"></label>
+    									<input type="password" class="form-control"   th:placeholder="#{admin.insertarContrasena}" th:field="*{contrasena}">
+    									<span th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}" class="text-danger"></span>
+    								
+  									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group ">
+    									<label for="exampleFormControlInput1" th:text="#{admin.apellido}"></label>
+    									<input type="text" class="form-control"  th:placeholder="#{admin.insertarApellido}" th:field="*{apellido}">
+    									<span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" class="text-danger"></span>
+    								
+  									</div>
+  									<div class="form-group ">
+    									<label for="exampleFormControlInput1" th:text="#{admin.fecha}"></label>
+    									<input type="date" class="form-control"   th:placeholder="#{admin.insertarFecha}" th:field="*{fechaNacimiento}">
+    									<span th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}" class="text-danger"></span>
+    								
+  									</div>
+  									<div class="form-group ">
+    									<label for="exampleFormControlInput1" th:text="#{admin.correo}"></label>
+    									<input type="text" class="form-control"  id="exampleFormControlInput1" th:placeholder="#{admin.insertarCorreo}" th:field="*{correo}">
+    									<span th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}" class="text-danger"></span>
+    								
+  									</div>
+  									<div class="form-group" >
+    									<label for="exampleFormControlInput1" th:text="#{admin.repetirContrasena}"></label>
+    									<input type="password" class="form-control" th:placeholder="#{admin.insertarRepetirContrasena}" th:field="*{repContrasena}">
+    									<span th:if="${#fields.hasErrors('repContrasena')}" th:errors="*{repContrasena}" class="text-danger"></span>
+  									</div>
+								</div> 
+							</div>
+						</div>
+					<div id = "divisionBotones">
+						<button id="botonAgregar"   class="btn btn-primary" type="submit" th:text="#{admin.agregarAdmin}"><span ><i class="fas fa-plus" ></i> </span></button>
+						<button id="botonBuscar"  class="btn btn-primary" type="submit" th:text="#{admin.buscarAdmin}"><span><i class="fas fa-search"></i></span></button>
+						<button id="botonActualizar"  class="btn btn-primary" type="submit" th:text="#{admin.actualizar}"><span><i class="fas fa-sync-alt"></i> </span></button>
+						<button id="botonEliminar"  class="btn btn-primary" type="submit" th:text="#{admin.eliminar}"><span><i class="fas fa-trash-alt"></i> </span></button>
+					</div>
+
+					</form>		
+				</div>
+  			</div>
+		</div>
+	</div>
+	
+	<div th:replace="fragment/footer :: foo"></div>
+	
+</body>
+</html>

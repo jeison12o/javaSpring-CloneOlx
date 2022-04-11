@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<div  th:replace="fragment/header :: head"></div>
+</head>
+<body>
+	<div th:replace="fragment/navbarMenuUsuario :: navbarMenuUsuario"></div>
+	<div class="m-3" align="center">
+		<div class="card" style="width: 45rem;">
+  			<div class="card-body">
+  				<h5 class="card-title" th:text="#{An.titulo}"></h5>
+  			    <form action="#" th:action="@{/user/modificarAnuncio}" th:object="${anuncio}" method="post" enctype="multipart/form-data">
+  			    	<input type="hidden" class="form-control" th:field="*{id}" th:value="${anuncio.id}">
+  			    	<input type="hidden" id="agregarUrl" th:field="*{urlFoto}" th:value="${anuncio.urlFoto}">
+  			    	<input type="hidden" id="cambioUrl" name="cambioUrl" value="false">
+    				<div class="container">
+						<div class="row" >
+							<div class="col-md-6">
+								<div class="form-group ">
+    								<label for="exampleFormControlInput1" th:text="#{anuncio.nombre}" ></label>
+    								<input required = "true" type="text" class="form-control" th:placeholder="#{anuncio.insertarTitulo}" th:field="*{titulo}" th:value="${anuncio.titulo}">
+    								<span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="text-danger"></span>
+  								</div>
+  								<div class="form-group ">
+    								<label for="exampleFormControlInput1" th:text="#{anuncio.descripcion}" ></label>
+    								<textarea required = "true" class="form-control" id="exampleFormControlTextarea1" rows="7" th:placeholder="#{anuncio.insertarDescripcion}" th:field="*{descripcion}" th:value="${anuncio.descripcion}"></textarea>
+    								<span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}" class="text-danger"></span>
+  								</div>
+  								<div class="form-group">
+    								<label for="exampleFormControlSelect1" th:text="#{anuncio.subcategoria}"></label>
+    								<select class="form-control" th:field="*{subcategoria}" id="exampleFormControlSelect1" >
+     									<option th:each="sub : ${subcategorias}"   th:value="${sub.id}" th:text="${sub.nombre}" th:selected="${sub.id == anuncio.subcategoria.id}"></option>
+    								</select>
+    								<span th:if="${#fields.hasErrors('subcategoria')}" th:errors="*{subcategoria}" class="text-danger"></span>
+  								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group ">
+    								<label for="exampleFormControlInput1" th:text="#{anuncio.precio}"></label>
+    								<input required = "true" type="number" min="1000" pattern="^[0-9]+" class="form-control"  th:placeholder="#{anuncio.insertarPrecio}" th:field="*{precio}" th:value="${anuncio.precio}">
+    								<span th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}" class="text-danger"></span>
+  								</div>
+  								<div class="form-group ">
+    								<label for="exampleFormControlInput1" th:text="#{anuncio.contacto}"></label>
+    								<input type="text" required = "true" class="form-control"  th:placeholder="#{anuncio.insertarContacto}" th:field="*{contacto}" th:value="${anuncio.contacto}">
+    								<span th:if="${#fields.hasErrors('contacto')}" th:errors="*{contacto}" class="text-danger"></span>
+  								</div>
+  								<div class="form-group ">
+    								<label  for="file-upload" class="subir btn btn-primary" tx:text="#{anuncio.subirImagen}">
+    									<i class="fas fa-cloud-upload-alt" ></i> 
+									</label>
+    								<input type="file" id="file-upload" accept="image/*" class="form-control-file" style='display: none;' name="file">
+    								<span th:if="${#fields.hasErrors('urlFoto')}" th:errors="*{urlFoto}" class="text-danger"></span>
+    								<div id="zona">
+  										<img id="imcargar" th:src="${anuncio.urlFoto}" alt="${anuncio.urlFoto}" class="img-fluid rounded mt-2" style='width: 12rem; heigth: auto;' >
+  									</div>
+  								</div>
+							</div> 
+						</div>
+						</div>
+					<div>
+						<button  class="btn btn-primary" type="submit"><i class="fas fa-plus-circle" ></i></button>
+					</div>
+				</form>
+  			</div>
+		</div>
+	</div>
+	<div th:replace="fragment/footer :: foo"></div>
+	<script src="js/subirImagen.js" th:src="@{/js/subirImagen.js}"></script>
+</body>
+</html>

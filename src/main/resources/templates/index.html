@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+ <div  th:replace="fragment/header :: head"></div>
+</head>
+<body>
+	<div th:replace="fragment/topNavbar :: navbar"></div>
+	
+	<div class="mt-3">
+		<div th:replace="fragment/slider :: sli"></div>
+	</div>
+	
+	<div th:replace="fragment/listaAnuncios :: listaAnuncios"></div>
+	
+	<div th:replace="fragment/footer :: foo"></div>
+</body>
+</html>

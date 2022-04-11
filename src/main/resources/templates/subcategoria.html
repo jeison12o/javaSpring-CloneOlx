@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="#{subcat.titulo}"></title>
+<div th:replace="fragment/header :: head"></div>
+<link rel="stylesheet" th:href="@{/css/subcategoria.css}">
+</head>
+<body>
+	<div id = "barraNavegacion" th:replace="fragment/navbarMenuAdmin :: navbarMenuAdmin"></div>
+	<div class="card" style="width: 50rem;">
+
+		<form action="#" th:action="@{/admin/guardarSubcategoria}"
+			th:object="${subcategoria}" method="post">
+
+			<div align="center" id="firstDiv">
+				<span id="titulo" th:text="#{subcat.titulo}"></span>
+			</div>
+
+			<div id="divisionTabla">
+				<table id="tablaSubcategoria">
+					<tr id="fila">
+						<td class="columna">
+
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<label id="lblCategorias" class="input-group-text"
+										for="inputGroupSelect01" th:text="#{subcat.categorias}"></label>
+								</div>
+								<select class="custom-select" id="inputGroupSelect01"
+									th:field="*{nombreCategoria}">
+									<option selected value="0" th:text="#{subcat.seleccion}"></option>
+									<option th:value="${categoria.nombre}"
+										th:each="categoria : ${categorias}"
+										th:text="${categoria.nombre}"></option>	
+								</select>
+							</div>
+
+						</td>
+						<td class="columna">
+							<div class="col-md-12">
+								<input required = "true" type="text" th:field="*{nombre}"
+									th:placeholder="#{subcat.insertarNombreSubcat}" id="campo" />
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" id="mensajeError"><span class="text-danger"
+							th:text="${error}"></span>
+							<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span></td>
+					</tr>
+				</table>
+
+			</div>
+
+			<div id="botonesCrud">
+				<button id="botonAgregar" class="btn btn-primary" type="submit" th:text="#{subcat.agregar}">
+					<span><i class="fas fa-plus"></i> </span>
+				</button>
+			</div>
+
+		</form>
+
+	</div>
+
+	<div class="card" style="width: 50rem;">
+		<table id="tablaSubcategorias">
+			<thead>
+				<tr class="filasSubcategorias">
+					<th colspan="2" id="colTitulo" th:text="#{subcat.agregadas}"><span></span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="subcategoria : ${subcategorias}"
+					class="filasSubcategorias">
+					<td th:text="${subcategoria.nombre}" class="colSubcategorias"></td>
+					<td class="colSubcategorias"><a id="botonEliminar"
+						class="btn btn-primary"
+						th:href="@{/admin/eliminarSubcategoria/{id}(id=${subcategoria.id})}">
+							<span th:text="#{subcat.eliminar}"><i class="fas fa-trash-alt"></i> </span>
+					</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div th:replace="fragment/footer :: foo"></div>
+
+
+</body>
+</html>

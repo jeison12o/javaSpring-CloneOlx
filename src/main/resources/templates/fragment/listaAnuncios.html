@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<div th:fragment="listaAnuncios">
+		<div class="container mt-3">
+			<h2 th:if="${listaAnuncios.isEmpty()}" th:text="#{anuncio.vacio}"></h2>
+			<div th:if="${!listaAnuncios.isEmpty()}">
+				<h2 th:text="#{anuncio.titulo}"></h2>
+						<div class="album py-5 bg-light">
+  							<div class="container">
+    							<div class="row">
+      								<div class="col-md-4" th:each="anuncio : ${listaAnuncios}">
+        								<div class="card mb-4 shadow-sm p-5 h-100">
+          									<img th:src="${anuncio.urlFoto}" alt="${anuncio.urlFoto}" class="card-img-top" />
+          									<a th:href="@{/detalle/{id}(id=${anuncio.id})}"><h3 class="card-title" align="center" th:text="${anuncio.titulo}"></h3></a>
+          									<div class="card-body">
+          										<p class="card-text" align="center" th:text="${anuncio.descripcion}"></p>
+          										<h5 class="card-text" align="center" th:text="${anuncio.contacto}"></h5>
+          										<h5 class="card-text" align="center" th:text="'$'+${anuncio.precio}"></h5>
+          									</div>
+        								</div>
+								     </div>
+								 </div>
+							</div>
+						</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

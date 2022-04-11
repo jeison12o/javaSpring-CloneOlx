@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+</head>
+<body>
+<div th:fragment="navbar">
+	<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  		<a class="navbar-brand" th:href="@{/}"><i class="fas fa-cart-plus"></i>OLX</a>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    	<ul class="navbar-nav mr-auto">
+    		<li class="nav-item dropdown active">
+        		<a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="#{cat.todas}"></a>
+        		<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          			<li class="dropdown-submenu" th:each="cate : ${categorias}">
+          				<a class="dropdown-item dropdown-toggle" th:text="${cate.nombre}"></a>
+          					<ul class="dropdown-menu" >
+              					<li th:each="sub : ${subcategorias}">
+              						<a class="dropdown-item" th:href="@{/subcategoria/{idSubcategoria}(idSubcategoria=${sub.id})}" th:text="${sub.nombre}" th:if="${sub.categoria.id == cate.id}"></a>
+              					</li>
+              				</ul>
+          			</li>
+        		</ul>
+      		</li>
+      		<li class="nav-item active">
+        		<a class="nav-link" th:href="@{/registrarse}" th:text="#{usuario.crearCuenta}"></a>
+      		</li>
+      		<li class="nav-item active">
+        		<a class="nav-link" th:href="@{/signup}" th:text="#{usuario.login}"></a>
+      		</li>
+    	</ul>
+    	
+    	<form class="form-inline my-2 my-lg-0" th:action="@{/palabraClave}" method="Get">
+      		<input class="form-control mr-sm-2" type="search" th:placeholder="#{boton.buscar}" aria-label="Search" name="palabra" >
+      		<button class="btn btn-outline-dark my-2 my-sm-0" type="submit" th:text="#{boton.buscar}"></button>
+    	</form>
+  	</div>
+	</nav>
+</div>
+</body>
+</html>

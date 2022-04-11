@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="#{cat.title}"></title>
+<div th:replace="fragment/header :: head"></div>
+<link rel="stylesheet" th:href="@{/css/categoria.css}">
+</head>
+<body>
+	<div id = "barraNavegacion" th:replace="fragment/navbarMenuAdmin :: navbarMenuAdmin"></div>
+	<div class="card" style="width: 50rem;">
+
+
+		<form action="#" th:action="@{/admin/guardarCategoria}"
+			th:object="${categoria}" method="post">
+
+			<div align="center" id="firstDiv">
+				<span th:text="#{cat.title}" id="titulo"></span>
+			</div>
+			<div id="divisionQ">
+				<div id="divisionR">
+					<div id="divisionP" class="col-md-4">
+						<input required = "true" type="text" th:field="*{nombre}" th:name="nombre"
+							class="form-control" th:placeholder="#{cat.ingresarCat}"
+							id="campo" />
+					</div>
+				</div>
+
+				<div id="divisionSolucion">
+					<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span>
+					<span id="error" class="text-danger" th:text="${error}"></span>
+				</div>
+				<div id="botonesCrud">
+					<button th:text="#{cat.guardar}" id="botonAgregr" type="submit" class="btn btn-primary">
+						<i class="fas fa-plus"></i> 
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="card" style="width: 50rem;" id="divisionCategorias">
+		<h1 th:text="#{cat.noHay}" th:if="${categorias.isEmpty()}"></h1>
+		<table th:if="${!categorias.isEmpty()}" id="listaCategorias">
+			<thead>
+				<tr class="filasCategorias">
+					<th th:text="#{cat.agregadas}" id="tituloColumnaCategoria" class="columnasCategorias"
+						colspan="2"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="categoria : ${categorias}" class="filasCategorias">
+					<td th:text="${categoria.nombre}" class="columnasCategorias"
+						id="nombreCategoria"></td>
+					<td id="colBotonesEliminar" class="columnasCategorias"><a
+						id="botonEliminar" class="btn btn-primary"
+						th:href="@{/admin/eliminarCategoria/{id}(id=${categoria.id})}" th:text="#{cat.eliminar}" ><i
+							class="fas fa-trash-alt"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div th:replace="fragment/footer :: foo"></div>
+
+
+</body>
+</html>

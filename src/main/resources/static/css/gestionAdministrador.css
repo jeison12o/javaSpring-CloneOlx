@@ -1,0 +1,48 @@
+@charset "ISO-8859-1";
+
+.card-title {
+	font-weight: bolder;
+	font-size: 30px;
+}
+
+#botonAgregar{
+	margin-left: 30px;
+}
+
+#botonBuscar{
+	margin-left: 13px;
+}
+
+#botonActualizar{
+	margin-left: 13px;
+}
+
+#botonEliminar{
+	margin-left: 13px;
+}
+
+#tablaTitulo {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	width: 600px;
+	margin-bottom: 20px;
+}
+
+#tablaFormulario {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	width: 670px;
+	margin-bottom: 40px;
+}
+
+#divisionBotones {
+	margin-top: 35px;
+}

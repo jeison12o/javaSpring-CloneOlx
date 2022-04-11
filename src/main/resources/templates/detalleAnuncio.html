@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+ <div  th:replace="fragment/header :: head"></div>
+</head>
+<body>
+	<div th:if="${idDueno > 0}">
+		<div th:replace="fragment/navbarMenuUsuario :: navbarMenuUsuario"></div>
+	</div>
+	<div th:if="${idDueno==0}">
+		<div th:replace="fragment/topNavbar :: navbar"></div>
+	</div>
+	
+	<div class="mt-5">
+		<div class="container">
+			<div class="row mt-5">
+				<div class="m-2">
+					<div class="card" style="width: 42rem;">
+  						<img th:src="${anuncio.urlFoto}" class="card-img-top"/>
+  						<div class="card-body">
+    						<h1 class="card-title" th:text="${anuncio.titulo}"></h1>
+    						<p class="card-text" th:text="${anuncio.descripcion}"></p>
+    						<div th:if="${idDueno == vendedor.id}">
+    							<a class="btn btn-primary" th:href="@{/buscarAnuncio/{id}(id=${anuncio.id})}"><i class="fas fa-pencil-alt"></i> Modificar</a>
+								<a class="btn btn-danger mt-1" th:onclick="eliminarAnuncio([[${anuncio.id}]], [[${anuncio.usuario.id}]])"><i class="far fa-trash-alt"></i> Eliminar</a>
+    						</div>
+					  	</div>
+					</div>
+				</div>
+				<div class="m-2">
+					<div class="card p-1" style="width: 22rem;">
+						<div th:if="${idDueno != vendedor.id || idDueno == 0}">
+    						<h2 class="card-title m-1" th:text="#{anuncio.infovendedor}"></h2>
+    					</div>
+						<div th:if="${idDueno == vendedor.id}">
+    						<h2 class="card-title m-1" th:text="#{anuncio.snombre}"></h2>
+    					</div>
+  						<div class="card-body">
+  							<label th:text="#{anuncio.snombre}"></label>
+   	 						<h3 th:text="${vendedor.nombre}+' '+${vendedor.apellido}"></h3>
+   	 						<label class="mt-2" th:text="#{anuncio.snumero}">:</label>
+    						<h5 class="card-text" th:text="${vendedor.telefono}"></h5>
+    						<label class="mt-2" th:text="#{anuncio.scorreo}"></label>
+    						<h5 class="card-text" th:text="${vendedor.correo}"></h5>
+    						<div th:if="${idDueno != vendedor.id}" sec:authorize="isAuthenticated()">
+    							<form th:action="@{/user/chat}" method="POST">
+    								<input type="hidden" th:value="${vendedor.id}" name="idVendedor">
+    								<input type="hidden" th:value="${anuncio.id}" name="idAnuncio">
+    								<button type="submit" class="mt-5 btn btn-primary" align="right" th:text="#{anuncio.contactar}"></button>
+    							</form>
+    						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragment/footer :: foo"></div>
+	<script src="js/eliminarAnuncio.js" th:src="@{/js/eliminarAnuncio.js}"></script>
+</body>
+</html>

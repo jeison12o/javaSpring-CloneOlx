@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="#{descarga.title}"></title>
+	<div  th:replace="fragment/header :: head"></div>
+	<link rel="stylesheet" th:href="@{/css/descarga.css}"/>
+</head>
+<body>
+
+	<div>
+		<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+			<a class="navbar-brand" th:href="@{/}"><i class="fas fa-cart-plus"></i>OLX</a>
+  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+		</nav>
+	</div>
+
+
+	<div>
+		<table align="center">
+			<tr><td colspan="2" id="1"><span id="titulo" th:text="#{descarga.header}"> <i class="fas fa-globe"></i>LX!</span></td></tr>
+			<tr><td colspan="2" id="2"><span id="subtitulo" th:text="#{descarga.textouno}"></span></td></tr>
+			<tr><td colspan="2" id="3"><span id="descarga" th:text="#{descarga.textodos}"></span></td></tr>
+			<tr>
+				<td id="boton1"><a th:href="@{https://play.google.com/store/apps/details?id=com.olx.olx}" class="btn btn-primary" id="botonDescarga"><span id="letreroBoton"><i class="fab fa-google-play"></i> Google Play</span></a>
+				<span id="espaciado">Pvt0ElQLoL34</span><a th:href="@{https://apps.apple.com/co/app/olx-clasificados/id382059698}" class="btn btn-primary" id="botonDescarga"><span id="letreroBoton"><i class="fab fa-apple"></i> App Store</span></a></td>
+			</tr>
+		</table>
+	</div>
+	
+
+	<div align="center">
+		<img th:src="@{/images/footer.png}" alt="footer image.">
+	</div>
+	
+	<img th:src="@{/images/lineaHorizontal.png}" alt="lineaHorizontal.png">
+	
+	<table align="center">
+		<td><span id="copyright">   Copyright &copy; 2000-2020 OLX Colombia LTDA.</span></td>
+	</table>
+	
+	<div id="cuadroFinal">
+	</div>
+
+</body>
+</html>

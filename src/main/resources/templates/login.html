@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+ <div  th:replace="fragment/header :: head"></div>
+ <div  th:replace="fragment/cabezera :: cabezera"></div>
+ <link rel="stylesheet" th:href="@{/css/login.css}"/>
+</head>
+<body>
+	
+	<div class="mt-3" align="center">
+		<div class="card" style="width: 22rem;">
+  			<div class="card-body">
+    			<span class="card-title" th:text="#{usuario.ingresarDatos}" ></span>
+    			<form th:action="@{/login}" method="post">
+  					<div class="form-group">
+    					<label for="exampleInputEmail1" th:text="#{usuario.correo}"></label>
+    					<input type="email" required="true" class="form-control" th:placeholder="#{usuario.insertarCorreo}"  name="email">
+  					</div>
+  					<div class="form-group">
+    					<label for="exampleInputPassword1" th:text="#{usuario.contrasena}"></label>
+    					<input type="password" required="true" class="form-control" th:placeholder="#{usuario.insertarContrasena}" name="contrasena">
+  					</div>
+  					<span class="text-danger" th:text="${error}"></span>
+ 					<div class="form-group form-check">
+    					<input type="checkbox" class="form-check-input" >
+    					<label class="form-check-label" for="exampleCheck1" th:text="#{usuario.recordar}"></label>
+  					</div>
+  					<button type="submit" class="btn btn-primary" th:text="#{usuario.login}" ><i class="fas fa-sign-in-alt" ></i></button>
+				</form>
+				<div th:if="${param.error}" class="alert alert-danger" role="alert">
+		            Invalid username and password.
+		        </div>
+		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
+		            You have been logged out.
+		        </div>
+  			</div>
+		</div>
+	</div>
+	<div th:replace="fragment/footer :: foo"></div>
+	
+</body>
+</html>

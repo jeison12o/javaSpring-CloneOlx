@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+
+#todasLasCategorias{
+	cursor: pointer;
+}
+
+#simbolo, #bienvenida {
+	font-size: 50px;
+}
+
+#tabla {
+	margin-left: 300px;
+}
